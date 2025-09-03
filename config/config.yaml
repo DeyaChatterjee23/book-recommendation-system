@@ -1,0 +1,65 @@
+# Base Configuration
+app:
+  name: "Book Recommender System"
+  version: "1.0.0"
+  description: "A production-ready book recommendation system"
+  debug: false
+
+server:
+  host: "0.0.0.0"
+  port: 8000
+  reload: false
+  workers: 4
+
+database:
+  url: "postgresql://user:password@localhost:5432/bookdb"
+  echo: false
+  pool_size: 10
+  max_overflow: 20
+
+redis:
+  url: "redis://localhost:6379/0"
+  ttl: 3600
+  max_connections: 10
+
+models:
+  collaborative_filtering:
+    algorithm: "brute"
+    n_neighbors: 6
+    min_user_ratings: 200
+    min_book_ratings: 50
+
+  content_based:
+    embedding_dim: 2304
+    similarity_metric: "cosine"
+    ollama_url: "http://localhost:11434"
+    ollama_model: "gemma2:2b"
+
+  hybrid:
+    collaborative_weight: 0.6
+    content_weight: 0.4
+
+security:
+  secret_key: "your-secret-key-change-in-production"
+  algorithm: "HS256"
+  access_token_expire_minutes: 30
+
+rate_limiting:
+  requests_per_minute: 100
+  burst_size: 10
+
+performance:
+  cache_enabled: true
+  batch_size: 1000
+  max_recommendations: 20
+  similarity_threshold: 0.5
+
+monitoring:
+  enable_metrics: true
+  health_check_interval: 30
+  log_level: "INFO"
+
+data:
+  raw_data_path: "data/raw"
+  processed_data_path: "data/processed"
+  models_path: "data/models"

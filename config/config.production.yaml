@@ -1,0 +1,15 @@
+# Production Configuration Overrides
+server:
+  workers: 4
+
+security:
+  secret_key: "${SECRET_KEY}"
+
+database:
+  url: "${DATABASE_URL}"
+
+redis:
+  url: "${REDIS_URL}"
+
+monitoring:
+  log_level: "WARNING"

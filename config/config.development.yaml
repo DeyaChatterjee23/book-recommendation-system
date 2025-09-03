@@ -1,0 +1,17 @@
+# Development Configuration Overrides
+app:
+  debug: true
+
+server:
+  reload: true
+  workers: 1
+
+database:
+  echo: true
+  url: "sqlite:///./book_recommender_dev.db"
+
+monitoring:
+  log_level: "DEBUG"
+
+performance:
+  cache_enabled: false

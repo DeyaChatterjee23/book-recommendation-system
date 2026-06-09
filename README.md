@@ -82,11 +82,6 @@ book-recommender-system/
    python main.py
    ```
 
-8. **Access the API**
-   - API: http://localhost:8000
-   - Documentation: http://localhost:8000/docs
-   - Health Check: http://localhost:8000/health
-
 ### Docker Deployment
 
 1. **Build and run with Docker Compose**
